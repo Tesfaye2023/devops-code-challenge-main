@@ -1,0 +1,13 @@
+[Unit]
+Description=nodejs-frondend
+
+[Service]
+Type=simple
+Environment=NODE_PORT=3000
+User=ec2-user
+Group=ec2-user
+ExecStart=/bin/bash -c 'cd /var/lightfeather-app/frontend/ && npm ci && npm start'
+StandardOutput=journal+console
+
+[Install]
+WantedBy=multi-user.target
